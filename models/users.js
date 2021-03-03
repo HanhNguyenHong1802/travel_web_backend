@@ -1,32 +1,16 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-var passportLocalMongoose = require('passport-local-mongoose');
+// This is a Mongoose schema (model) for a user.
 
-var userSchema = new Schema({
-	nickname: {
-		type: String,
-		default: ''
-	},
-	firstname: {
-		type: String,
-		default: ''
-	},
-	lastname:{
-		type: String,
-		default: ''
-	},
-	email:{
-		type: String,
-		default: ''
-	},
-	isAdmin:{
-		type: Boolean,
-		default:false
-	},
-},{
-	tiemstamps:{}
-}, { autoCreate: true});
+const mongoose = require("mongoose");
+const user = new mongoose.Schema({
+  name: String,  
+  googleId: String,
+  email: String,
+  password: String,
+  address: { type: String, default: "home" },
+  mobile: Number,
+  booked: [{ source: String, destination: String, dateto: String, datefrom: String, hotelId: String, hotelcost: Number, hotelimageurl: String, hotellocation: String, hotelname: String, carcost: Number, cartype: String, carimageurl: String, flightarrival: String, flightdeparture: String, flightcarriercode: String, flightnumber: Number, flightcost: Number }],
+  bucketlist: [{ type: String }],
+  visited: [{ type: String }],
+});
 
-userSchema.plugin(passportLocalMongoose);
-var Users = mongoose.model('User',userSchema)
-module.exports = Users;
+module.exports = mongoose.model("TRVL_User", user);
