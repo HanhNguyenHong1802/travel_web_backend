@@ -32,7 +32,7 @@ mongoose.connect(
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(
     cors({
-      origin: "http://localhost:3000", // location of react frontend
+      origin: "http://localhost:3000"|| "http://localhost:3001",// location of react frontend
       credentials: true,
     })
   );
@@ -100,7 +100,7 @@ var amadeus = new Amadeus({
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
       // Successful authentication, redirect home.
-      res.redirect('http://localhost:3000/profile');
+      res.redirect('http://localhost:3000/profile||http://localhost:3001/profile');
     });
   
   app.post("/login", (req, res, next) => {
