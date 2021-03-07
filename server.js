@@ -18,7 +18,7 @@ const PORT = 4000
 //========================================= MONGODB CONNECT
 
 mongoose.connect(
-    "mongodb+srv://hanh-nh_18:123321@cluster0.vyhic.mongodb.net/Travel_webDB?retryWrites=true&w=majority",
+    "mongodb+srv://hanh-nh_18:123321@cluster0.vyhic.mongodb.net/travel_webDB?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -123,6 +123,7 @@ var amadeus = new Amadeus({
   });
   
   app.post("/register", (req, res) => {
+    try{
       User.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User already exists, please login");
@@ -139,6 +140,9 @@ var amadeus = new Amadeus({
           res.send("Welcome to TRVL!");
         }
       });
+    }catch(error){
+      console.log('error', error)
+    }
     });
     
   
