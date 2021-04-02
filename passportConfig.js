@@ -27,8 +27,8 @@ module.exports = function (passport) {
   );
 
   passport.use(new GoogleStrategy({
-    clientID: "751001492083-rqrsijcv9pveemuj4rihnt4obcvhg8ju.apps.googleusercontent.com",
-    clientSecret: "5jCOpS7nLjlhcR0m6zkt5K89",
+    clientID: "13419081150-08pi1jtvtvvujlukp2a49lvi0fvie273.apps.googleusercontent.com",
+    clientSecret: "eMdbIL2SF4Q8ykY2CQOCixGs",
     callbackURL: "http://localhost:4000/google/callback"
     //callbackURL: "http://localhost:3000/profile"
   },
